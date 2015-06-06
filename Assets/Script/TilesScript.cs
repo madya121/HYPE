@@ -20,7 +20,7 @@ public class TilesScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//KeyboardInput();
+		KeyboardInput();
 	}
 	
 	void KeyboardInput() {		
@@ -41,7 +41,7 @@ public class TilesScript : MonoBehaviour {
 	
 	void Pressed() {
 		if (Time.timeScale == 0.2f) return;
-		if (gameplayScript.tilePressed < 1) {
+		if (gameplayScript.tilePressed < 2) {
 			canBounce = true;
 			gameObject.GetComponent<SpriteRenderer>().color = pressed;
 			tilePressed = true;

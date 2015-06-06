@@ -6,6 +6,7 @@ public class DiamondScript : MonoBehaviour {
 
 	public GameObject score;
 	public GameObject blast;
+	public GameObject blastForce;
 	public GameObject mainCamera;
 	public float maxForceY = 10;
 	public float maxForceX = 10;
@@ -30,7 +31,7 @@ public class DiamondScript : MonoBehaviour {
 		if (secondAfterLastHit >= 7f && Time.timeScale != 0.2f) {
 			secondAfterLastHit = 0f;
 			rig2D.velocity = new Vector2(Random.Range(-5, 5), Random.Range(5, 7));
-			Instantiate(blast, transform.position, Quaternion.identity);
+			Instantiate(blastForce, transform.position, Quaternion.identity);
 		}
 	}
 	
@@ -42,7 +43,6 @@ public class DiamondScript : MonoBehaviour {
 		if (Y <= -maxForceY) Y = -maxForceY;
 		if (Y >= maxForceY) Y = maxForceY;
 		rig2D.velocity = new Vector2(X, Y);
-		print(rig2D.velocity);
 	}
 	
 	void OnCollisionEnter2D(Collision2D coll) {

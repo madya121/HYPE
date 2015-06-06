@@ -23,7 +23,12 @@ public class GameplayScript : MonoBehaviour {
 		UnityAnalytics.StartSDK (projectId);
 		
 		if (tryObs == -1) {
-			string obsName = "Obstacle " + Random.Range(1, obstacleTotal + 1);
+			int prefabNumber = -1;
+			do {
+				prefabNumber = Random.Range(1, obstacleTotal + 1);
+			} while (prefabNumber == GameDataStatic.prefabBefore);
+			GameDataStatic.prefabBefore = prefabNumber;
+			string obsName = "Obstacle " + prefabNumber;
 			Instantiate(Resources.Load(obsName, typeof(GameObject)));
 		} else {
 			string obsName = "Obstacle " + tryObs;
