@@ -43,7 +43,7 @@ public class MainCameraGamplayScript : MonoBehaviour {
 			originRotation = _transform.localRotation;
 		}
 		shaking = true;
-		shake_intensity = .03f;
+		shake_intensity = .02f;
 		shake_decay = 0.0007f;
 	}
 }

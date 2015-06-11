@@ -9,6 +9,7 @@ public class TilesScript : MonoBehaviour {
 	public GameObject gameoverMenu;
 	public int tileNumber;
 	public bool tilePressed = false;
+	public AudioClip gameoverSound;
 
 	private GameplayScript gameplayScript;
 	private bool canBounce = false;
@@ -81,6 +82,9 @@ public class TilesScript : MonoBehaviour {
 			} else {
 				if (Time.timeScale != 0.2f)
 					gameoverMenu.GetComponent<Animator>().SetTrigger("Gameover");
+				else return;
+				coll.gameObject.GetComponent<DiamondScript>().SendScore();
+				coll.gameObject.GetComponent<AudioSource>().PlayOneShot(gameoverSound, 0.5f);
 				Time.timeScale = 0.2f;
 				coll.gameObject.GetComponent<Rigidbody2D>().velocity = coll.gameObject.GetComponent<Rigidbody2D>().velocity * 0.2f;
 			}
